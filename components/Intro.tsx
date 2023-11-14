@@ -9,7 +9,7 @@ import { BsLinkedin } from "react-icons/bs";
 
 type Props = {};
 
-const Intro = (props: Props) => {
+export default function Intro(props: Props) {
     return (
         <>
             <div className="shadow-lg rounded-full border-8 border-solid border-green-500">
@@ -34,7 +34,7 @@ const Intro = (props: Props) => {
                 <Button radius="full" disableRipple>
                     Contact me
                 </Button>
-                <Button radius="full" variant="bordered" disableRipple>
+                <Button radius="full" color="secondary" disableRipple>
                     Download CV
                     <LuDownload size={24} />
                 </Button>
@@ -49,6 +49,4 @@ const Intro = (props: Props) => {
             </div>
         </>
     );
-};
-
-export default Intro;
+}

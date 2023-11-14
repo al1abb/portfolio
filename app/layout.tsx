@@ -26,7 +26,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${sourceSansPro.className} bg-slate-50 text-gray-950 relative min-h-screen`}
+                className={`${sourceSansPro.className} bg-slate-100 text-gray-950 relative min-h-screen`}
             >
                 <Providers>
                     <Navbar />
