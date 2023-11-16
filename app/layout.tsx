@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Montserrat, Source_Sans_3 } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+
+// Providers
+import { Providers } from "@/app/providers";
 
 // Components
 import Navbar from "@/components/Navbar";
@@ -25,8 +28,10 @@ export default function RootLayout({
             <body
                 className={`${sourceSansPro.className} bg-slate-50 text-gray-950 relative min-h-screen`}
             >
-                <Navbar />
-                {children}
+                <Providers>
+                    <Navbar />
+                    {children}
+                </Providers>
             </body>
         </html>
     );
