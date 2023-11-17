@@ -6,7 +6,7 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 // Components
-import Navbar from "@/components/Navbar";
+import { Navbar } from "@/components";
 
 const sourceSansPro = Source_Sans_3({
     subsets: ["latin"],
