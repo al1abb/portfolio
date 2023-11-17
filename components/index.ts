@@ -1,7 +1,7 @@
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 
-import Intro from "./Intro";
-import Projects from "./Projects";
-import ProjectCard from "./ProjectCard";
+import Intro from "./intro";
+import Projects from "./projects";
+import ProjectCard from "./project-card";
 
 export { Navbar, Intro, Projects, ProjectCard };

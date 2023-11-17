@@ -22,6 +22,7 @@ export default function Intro(props: Props) {
                     src={"/assets/profile.jpg"}
                     width={150}
                     height={150}
+                    quality={95}
                     alt={"Ali Abbasov"}
                 ></Image>
 
@@ -38,14 +39,19 @@ export default function Intro(props: Props) {
             </div>
 
             <div className="flex flex-wrap gap-10">
-                <Button radius="full" disableRipple className="text-lg">
+                <Button
+                    className="text-md hover:scale-110"
+                    radius="full"
+                    color="primary"
+                    disableRipple
+                >
                     Contact me
                 </Button>
                 <Button
+                    className="text-md hover:scale-110"
                     radius="full"
                     color="secondary"
                     disableRipple
-                    className="text-lg"
                 >
                     Download CV
                     <LuDownload size={24} />
