@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: Props) {
                     objectFit="cover"
                     quality={100}
                     alt={`${project.name} image`}
-                    className="border rounded-lg shadow-lg"
+                    className="rounded-lg shadow-lg"
                 />
             </div>
 
