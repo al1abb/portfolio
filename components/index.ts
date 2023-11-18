@@ -1,7 +1,8 @@
 import Navbar from "./navbar";
 
 import Intro from "./intro";
+import About from "./about";
 import Projects from "./projects";
-import ProjectCard from "./project-card";
+import SectionHeading from "./section-heading";
 
-export { Navbar, Intro, Projects, ProjectCard };
+export { Navbar, Intro, About, Projects, SectionHeading };
