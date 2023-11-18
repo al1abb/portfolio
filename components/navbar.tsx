@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+// Data
 import { links } from "@/lib/data";
 
 export default function Navbar() {

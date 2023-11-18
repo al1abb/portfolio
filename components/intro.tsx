@@ -11,9 +11,7 @@ import { LuDownload } from "react-icons/lu";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
-type Props = {};
-
-export default function Intro(props: Props) {
+export default function Intro() {
     return (
         <section className="flex flex-col items-center gap-5">
             <div className="relative shadow-lg rounded-full w-fit h-fit border-8 border-solid border-green-400">
