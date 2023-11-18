@@ -38,6 +38,8 @@ export default function Intro() {
 
             <div className="flex flex-wrap gap-10">
                 <Button
+                    as={Link}
+                    href="#contact"
                     className="text-md hover:scale-110"
                     radius="full"
                     color="primary"
