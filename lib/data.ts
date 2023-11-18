@@ -5,15 +5,15 @@ export const links = [
     },
     {
         name: "About",
-        path: "/about",
+        path: "#about",
     },
     {
         name: "Projects",
-        path: "/projects",
+        path: "#projects",
     },
     {
         name: "Contact",
-        path: "/contact",
+        path: "#contact",
     },
     {
         name: "Blog",
@@ -26,8 +26,8 @@ export const yearsOfExperience = 4;
 export const projects = [
     {
         name: "Invoify",
-        description: "An invoice generator web application",
-        tech: ["Next.js", "React", "TypeScript", "Shadcn-UI"],
+        description: "An invoice generator web application.",
+        tags: ["Next.js", "React", "TypeScript", "Shadcn-UI"],
         startDate: "September 2023",
         links: {
             website: "https://invoify.vercel.app",
@@ -38,7 +38,7 @@ export const projects = [
     {
         name: "EvAl",
         description: "A real estate listing platform",
-        tech: ["Laravel", "Vue.js", "Vuex"],
+        tags: ["Laravel", "Vue.js", "Vuex"],
         startDate: "February 2022",
         endDate: "May 2022",
         links: {
@@ -49,7 +49,7 @@ export const projects = [
     {
         name: "RRW",
         description: "Railway reservation web application",
-        tech: ["Laravel", "PHP", "Blade"],
+        tags: ["Laravel", "PHP", "Blade"],
         startDate: "February 2020",
         endDate: "June 2020",
         links: {
