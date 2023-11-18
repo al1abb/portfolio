@@ -1,10 +1,8 @@
-import { links } from "@/lib/data";
 import Link from "next/link";
-import React from "react";
 
-type Props = {};
+import { links } from "@/lib/data";
 
-const Navbar = (props: Props) => {
+export default function Navbar() {
     return (
         <nav className="z-[999] flex justify-center py-5">
             {links.map((link) => (
@@ -14,6 +12,4 @@ const Navbar = (props: Props) => {
             ))}
         </nav>
     );
-};
-
-export default Navbar;
+}

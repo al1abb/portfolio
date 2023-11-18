@@ -1,9 +1,9 @@
 import React from "react";
+
+// Components
 import { SectionHeading } from "@/components";
 
-type Props = {};
-
-export default function About({}: Props) {
+export default function About() {
     return (
         <section id="about" className="max-w-[45rem] text-center leading-8">
             <SectionHeading>About me</SectionHeading>
