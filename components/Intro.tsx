@@ -15,7 +15,7 @@ type Props = {};
 
 export default function Intro(props: Props) {
     return (
-        <>
+        <section className="flex flex-col items-center gap-5">
             <div className="relative shadow-lg rounded-full w-fit h-fit border-8 border-solid border-green-400">
                 <Image
                     className="rounded-full relative z-10"
@@ -30,12 +30,12 @@ export default function Intro(props: Props) {
             </div>
 
             <div className="flex flex-col gap-4 z-10">
-                <p className="text-4xl max-w-[50rem] leading-snug">
+                <h1 className="text-4xl max-w-[50rem] leading-snug">
                     Hi, I&apos;m <span className="font-bold">Ali Abbasov</span>,
                     a full-stack web developer with over {yearsOfExperience}{" "}
                     years of experience creating dynamic, responsive solutions
                     for seamless user experiences.
-                </p>
+                </h1>
             </div>
 
             <div className="flex flex-wrap gap-10">
@@ -66,6 +66,6 @@ export default function Intro(props: Props) {
                     <FaLinkedin size={40} />
                 </Link>
             </div>
-        </>
+        </section>
     );
 }
