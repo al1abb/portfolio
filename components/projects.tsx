@@ -33,7 +33,7 @@ export default function Projects() {
 function Project({ name, description, mainImage, tags }: ProjectType) {
     const projectCardBg = "bg-gradient-to-r from-gray-200 to-white";
     return (
-        <section className="max-w-md mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-md p-4">
+        <section className="max-w-md mx-auto bg-gray-200 rounded-lg overflow-hidden p-4">
             <div className="relative w-full">
                 <Image
                     src={mainImage}
