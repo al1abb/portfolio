@@ -41,7 +41,6 @@ function Project({ name, description, mainImage, tags }: ProjectType) {
                     width={1000}
                     height={300}
                     quality={95}
-                    objectFit="contain"
                     className="rounded-lg shadow-lg lg:h-60 sm:h-54"
                 />
             </div>
