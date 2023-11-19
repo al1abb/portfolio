@@ -14,8 +14,7 @@ export default function Home() {
             <Projects />
             <Spacer y={20} />
             <Contact />
-
-            <Spacer y={96} />
+            <Spacer y={56} />
         </main>
     );
 }
