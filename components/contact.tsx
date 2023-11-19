@@ -1,11 +1,16 @@
+"use client";
+
 // NextUI
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
+
+// Toast
+import toast from "react-hot-toast";
 
 // Components
-import { SectionHeading } from "@/components";
+import { SectionHeading, SubmitButton } from "@/components";
 
-// Icons
-import { FaPaperPlane } from "react-icons/fa";
+// Actions
+import { sendEmail } from "@/actions/sendEmail";
 
 export default function Contact({}) {
     return (
@@ -19,11 +24,23 @@ export default function Contact({}) {
                 or through this form
             </p>
 
-            <form action="" className="flex flex-col gap-3">
+            <form
+                action={async (formData) => {
+                    const { data, error } = await sendEmail(formData);
+
+                    if (error) {
+                        toast.error(`Failed to send the message \n${error}`);
+                        return;
+                    }
+                    toast.success("Successfully sent the message");
+                }}
+                className="flex flex-col gap-3"
+            >
                 <Input
                     type="email"
-                    variant="faded"
+                    name="email"
                     placeholder="Your email"
+                    variant="faded"
                     radius="sm"
                     color="primary"
                     maxLength={500}
@@ -31,8 +48,9 @@ export default function Contact({}) {
                 />
                 <Textarea
                     type="text"
-                    variant="faded"
+                    name="message"
                     placeholder="Your message"
+                    variant="faded"
                     radius="sm"
                     color="primary"
                     minRows={7}
@@ -40,10 +58,7 @@ export default function Contact({}) {
                     required
                 />
 
-                <Button type="submit" radius="sm" className="group">
-                    Submit{" "}
-                    <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Button>
+                <SubmitButton />
             </form>
         </section>
     );
