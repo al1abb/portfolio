@@ -6,7 +6,10 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 // Components
-import { Navbar } from "@/components";
+import { Footer, Navbar } from "@/components";
+
+// Toast
+import { Toaster } from "react-hot-toast";
 
 const sourceSansPro = Source_Sans_3({
     subsets: ["latin"],
@@ -31,6 +34,9 @@ export default function RootLayout({
                 <Providers>
                     <Navbar />
                     {children}
+                    <Footer />
+
+                    <Toaster position="top-right" />
                 </Providers>
             </body>
         </html>
