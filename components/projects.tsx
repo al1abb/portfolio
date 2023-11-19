@@ -41,6 +41,7 @@ function Project({ name, description, mainImage, tags }: ProjectType) {
                     width={1000}
                     height={300}
                     quality={95}
+                    sizes="(min-width: 768px) 90vw, 75vw"
                     className="rounded-lg shadow-lg lg:h-60 sm:h-54"
                 />
             </div>
