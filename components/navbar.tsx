@@ -2,15 +2,28 @@ import Link from "next/link";
 
 // Data
 import { links } from "@/lib/data";
+import {
+    Navbar as NextUINavbar,
+    NavbarBrand,
+    NavbarContent,
+    NavbarItem,
+    Button,
+} from "@nextui-org/react";
 
 export default function Navbar() {
     return (
-        <nav className="z-[999] flex justify-center py-5">
-            {links.map((link) => (
-                <div key={link.name} className="mx-3">
-                    <Link href={link.path}>{link.name}</Link>
-                </div>
-            ))}
-        </nav>
+        <NextUINavbar
+            isBlurred
+            shouldHideOnScroll
+            className="z-[999] rounded-lg"
+        >
+            <NavbarContent className="hidden sm:flex">
+                {links.map((link) => (
+                    <NavbarItem key={link.name}>
+                        <Link href={link.path}>{link.name}</Link>
+                    </NavbarItem>
+                ))}
+            </NavbarContent>
+        </NextUINavbar>
     );
 }
