@@ -12,7 +12,7 @@ import { SectionHeading, SubmitButton } from "@/components";
 // Actions
 import { sendEmail } from "@/actions/sendEmail";
 
-export default function Contact({}) {
+export default function Contact() {
     return (
         <section id="contact">
             <SectionHeading>Contact me</SectionHeading>
@@ -26,13 +26,27 @@ export default function Contact({}) {
 
             <form
                 action={async (formData) => {
+                    // Get the values from the form data
+                    const senderEmail = formData.get("email") as string;
+                    const message = formData.get("message") as string;
+
+                    // Validate the form data on client side
+                    if (!senderEmail || !message) {
+                        toast.error("Email and message fields are required");
+                        return;
+                    }
+
+                    // Send the email
                     const { data, error } = await sendEmail(formData);
 
+                    // Handle the response
                     if (error) {
                         toast.error(`Failed to send the message \n${error}`);
                         return;
                     }
-                    toast.success("Successfully sent the message");
+                    if (!error) {
+                        toast.success("Successfully sent the message");
+                    }
                 }}
                 className="flex flex-col gap-3"
             >
