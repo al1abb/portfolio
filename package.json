@@ -14,12 +14,16 @@
         "@react-email/render": "^0.0.9",
         "@react-email/tailwind": "^0.0.12",
         "framer-motion": "^10.16.5",
+        "gray-matter": "^4.0.3",
         "next": "14.0.2",
         "nodemailer": "^6.9.7",
         "react": "^18",
         "react-dom": "^18",
         "react-hot-toast": "^2.4.1",
-        "react-icons": "^4.12.0"
+        "react-icons": "^4.12.0",
+        "rehype-highlight": "^7.0.0",
+        "remark": "^15.0.1",
+        "remark-html": "^16.0.1"
     },
     "devDependencies": {
         "@types/node": "^20",
