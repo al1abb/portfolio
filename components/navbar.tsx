@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 
+// Next
 import Link from "next/link";
-
-// Data
-import { links } from "@/lib/data";
 
 // NextUI
 import {
@@ -19,6 +17,8 @@ import {
     NavbarMenuItem,
 } from "@nextui-org/react";
 
+// Data
+import { links } from "@/lib/data";
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
