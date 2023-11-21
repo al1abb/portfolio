@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { Outfit, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
 // Providers
@@ -11,17 +11,20 @@ import { Footer, Navbar } from "@/components";
 // Toast
 import { Toaster } from "react-hot-toast";
 
-const sourceSansPro = Source_Sans_3({
+const outfit = Outfit({
     subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
     title: {
-        template: "Ali Abbasov | %s",
-        default: "Ali Abbasov | Portfolio",
+        template: "%s | Ali Abbasov",
+        default: "Portfolio | Ali Abbasov",
     },
     description:
         "Ali Abbasov is a full stack web developer with over 4 years of experience.",
+    icons: {
+        icon: "/favicon.ico",
+    },
     robots: {
         index: true,
         follow: true,
@@ -36,7 +39,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${sourceSansPro.className} bg-slate-100 text-gray-950 relative min-h-screen`}
+                className={`${outfit.className} bg-slate-100 text-gray-950 relative min-h-screen`}
             >
                 <Providers>
                     <Navbar />
