@@ -21,11 +21,14 @@ import {
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <NextUINavbar
             isBlurred
             shouldHideOnScroll
             className="z-[999] sm:rounded-xl sm:w-[70%] mx-auto"
+            isMenuOpen={isMenuOpen}
+            onMenuOpenChange={setIsMenuOpen}
         >
             <NavbarContent>
                 <NavbarMenuToggle
@@ -45,7 +48,11 @@ export default function Navbar() {
             <NavbarMenu>
                 {links.map((link, index) => (
                     <NavbarMenuItem key={`${link.name}-${index}`}>
-                        <Link className="" href={link.path}>
+                        <Link
+                            className=""
+                            href={link.path}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
                             {link.name}
                         </Link>
                     </NavbarMenuItem>
