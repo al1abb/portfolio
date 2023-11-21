@@ -3,6 +3,12 @@ export type ProjectType = {
     description: string;
     mainImage: string;
     tags: string[];
+    links: {
+        website?: string;
+        github?: string;
+    };
+    startDate?: string;
+    endDate?: string;
 };
 
 export type Post = {
