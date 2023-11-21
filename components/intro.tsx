@@ -32,8 +32,7 @@ export default function Intro() {
                 <h1 className="text-4xl max-w-[50rem] leading-snug">
                     Hi, I&apos;m <span className="font-bold">Ali Abbasov</span>,
                     a full-stack web developer with over {yearsOfExperience}{" "}
-                    years of experience creating dynamic, responsive solutions
-                    for seamless user experiences.
+                    years of experience creating web applications.
                 </h1>
             </div>
 
