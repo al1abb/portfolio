@@ -17,7 +17,7 @@ export default function Navbar() {
             shouldHideOnScroll
             className="z-[999] rounded-lg"
         >
-            <NavbarContent className="hidden sm:flex">
+            <NavbarContent className="sm:flex">
                 {links.map((link) => (
                     <NavbarItem key={link.name}>
                         <Link href={link.path}>{link.name}</Link>
