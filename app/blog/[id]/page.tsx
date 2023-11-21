@@ -1,6 +1,9 @@
 import Link from "next/link";
 
+// Lib
 import { getPostData } from "@/lib/posts";
+
+// Types
 import { Post } from "@/types";
 
 type Props = {
@@ -23,17 +26,14 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="container mx-auto">
             {/* Post Title */}
             <h1 className="font-extrabold text-3xl mb-1">{postData.title}</h1>
-
             <div className="text-gray-500 font-medium mb-5">
                 {postData.date}
             </div>
-
             {/* Post Content */}
             <div
                 className="text-gray-600"
                 dangerouslySetInnerHTML={{ __html: postData.content }}
             />
-
             <Link href="/blog">← Back to blog page</Link>
         </article>
     );
