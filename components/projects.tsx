@@ -1,5 +1,6 @@
 import React from "react";
 
+import Link from "next/link";
 import Image from "next/image";
 
 // NextUI
@@ -22,7 +23,7 @@ export default function Projects() {
             <div className="flex flex-row flex-wrap gap-10">
                 {projects.map((project) => (
                     <React.Fragment key={project.name}>
-                        <Project {...project} />
+                        <ProjectCard {...project} />
                     </React.Fragment>
                 ))}
             </div>
@@ -30,10 +31,18 @@ export default function Projects() {
     );
 }
 
-function Project({ name, description, mainImage, tags }: ProjectType) {
+function ProjectCard({
+    name,
+    description,
+    mainImage,
+    tags,
+    links,
+    startDate,
+    endDate,
+}: ProjectType) {
     const projectCardBg = "bg-gradient-to-r from-gray-200 to-white";
     return (
-        <section className="max-w-md mx-auto bg-gray-200 rounded-lg overflow-hidden p-4">
+        <section className="max-w-md mx-auto bg-gray-200 rounded-lg overflow-hidden p-5">
             <div className="relative w-full">
                 <Image
                     src={mainImage}
@@ -45,21 +54,39 @@ function Project({ name, description, mainImage, tags }: ProjectType) {
                     className="rounded-lg shadow-lg lg:h-60 sm:h-54"
                 />
             </div>
-            <div className="p-6">
+            <div className="flex flex-col p-6 gap-1">
                 <h3 className="text-2xl font-semibold">{name}</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                    {description}
-                </p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-gray-700 leading-relaxed">{description}</p>
+                <div className="flex flex-wrap gap-2 my-3">
                     {tags.map((tag, index) => (
                         <Chip
                             key={index}
-                            className="bg-black/[0.7] uppercase tracking-wider"
+                            className="bg-black/[0.8] uppercase tracking-wider"
                             size="sm"
                         >
                             {tag}
                         </Chip>
                     ))}
+                </div>
+                <div className="flex flex-wrap flex-row items-center gap-4 my-3">
+                    {links.website && (
+                        <Link
+                            href={links.website}
+                            target="_blank"
+                            className="underline"
+                        >
+                            View live
+                        </Link>
+                    )}
+                    {links.github && (
+                        <Link
+                            href={links.github}
+                            target="_blank"
+                            className="underline"
+                        >
+                            <p>Source code</p>
+                        </Link>
+                    )}
                 </div>
             </div>
         </section>
