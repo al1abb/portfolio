@@ -16,7 +16,10 @@ const sourceSansPro = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-    title: "Ali Abbasov | Portfolio",
+    title: {
+        template: "Ali Abbasov | %s",
+        default: "Ali Abbasov | Portfolio",
+    },
     description:
         "Ali Abbasov is a full stack web developer with over 4 years of experience.",
 };
