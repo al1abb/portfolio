@@ -1,3 +1,9 @@
+// Constants
+import { WEB_DEV_START_DATE } from "@/lib/constants";
+
+// Utils
+import { calculateYearsDifference } from "@/lib/utils";
+
 export const links = [
     {
         name: "Home",
@@ -21,7 +27,10 @@ export const links = [
     },
 ] as const;
 
-export const yearsOfExperience = 4;
+export const yearsOfExperience = calculateYearsDifference(
+    WEB_DEV_START_DATE,
+    new Date()
+);
 
 export const projects = [
     {
