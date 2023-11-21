@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 // Lib
@@ -8,6 +9,11 @@ import { SectionHeading } from "@/components";
 
 // Types
 import { Post } from "@/types";
+
+export const metadata: Metadata = {
+    title: "Blog",
+    description: "Ali Abbasov's Blog",
+};
 
 type PostWithoutContent = Omit<Post, "content">;
 
