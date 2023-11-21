@@ -10,6 +10,7 @@ import { yearsOfExperience } from "@/lib/data";
 import { LuDownload } from "react-icons/lu";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { GITHUB_LINK, TWITTER_LINK } from "@/lib/constants";
 
 export default function Intro() {
     return (
@@ -56,10 +57,10 @@ export default function Intro() {
                     Download CV
                     <LuDownload size={24} />
                 </Button>
-                <Link href="https://github.com/aliabb01" target="_blank">
+                <Link href={GITHUB_LINK} target="_blank">
                     <FaGithubSquare size={40} />
                 </Link>
-                <Link>
+                <Link href={TWITTER_LINK} target="_blank">
                     <FaSquareXTwitter size={40} />
                 </Link>
                 <Link>
