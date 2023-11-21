@@ -13,6 +13,10 @@ import { Post } from "@/types";
 export const metadata: Metadata = {
     title: "Blog",
     description: "Ali Abbasov's Blog",
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 type PostWithoutContent = Omit<Post, "content">;

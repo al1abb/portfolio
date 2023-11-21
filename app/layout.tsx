@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     },
     description:
         "Ali Abbasov is a full stack web developer with over 4 years of experience.",
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({
