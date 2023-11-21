@@ -33,7 +33,7 @@ export default function RootLayout({
             >
                 <Providers>
                     <Navbar />
-                    {children}
+                    <div className="min-h-screen">{children}</div>
                     <Footer />
 
                     <Toaster position="top-right" />
