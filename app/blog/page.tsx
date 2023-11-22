@@ -8,7 +8,7 @@ import { getSortedPostsData } from "@/lib/posts";
 import { SectionHeading } from "@/components";
 
 // Types
-import { Post } from "@/types";
+import { PostWithoutContent } from "@/types";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -18,8 +18,6 @@ export const metadata: Metadata = {
         follow: true,
     },
 };
-
-type PostWithoutContent = Omit<Post, "content">;
 
 const BlogPage = async () => {
     const allPostsData: PostWithoutContent[] = await getSortedPostsData();

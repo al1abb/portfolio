@@ -17,3 +17,5 @@ export type Post = {
     date: string;
     title: string;
 };
+
+export type PostWithoutContent = Omit<Post, "content">;
