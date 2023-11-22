@@ -42,7 +42,7 @@ function ProjectCard({
 }: ProjectType) {
     const projectCardBg = "bg-gradient-to-r from-gray-200 to-white";
     return (
-        <section className="max-w-md mx-auto bg-gray-200 bg-opacity-75 backdrop-blur-lg rounded-lg overflow-hidden p-5">
+        <section className="max-w-md mx-auto bg-gray-200 bg-opacity-75 backdrop-blur-lg rounded-lg overflow-hidden p-5 dark:text-white dark:bg-white/10">
             <div className="relative w-full">
                 <Image
                     src={mainImage}
@@ -56,12 +56,14 @@ function ProjectCard({
             </div>
             <div className="flex flex-col p-6 gap-1">
                 <h3 className="text-2xl font-semibold">{name}</h3>
-                <p className="text-gray-700 leading-relaxed">{description}</p>
+                <p className="text-gray-700 dark:text-white/70 leading-relaxed">
+                    {description}
+                </p>
                 <div className="flex flex-wrap gap-2 my-3">
                     {tags.map((tag, index) => (
                         <Chip
                             key={index}
-                            className="bg-black/[0.8] uppercase tracking-wider"
+                            className="bg-black/[0.8] dark:text-white/70 uppercase tracking-wider"
                             size="sm"
                         >
                             {tag}
