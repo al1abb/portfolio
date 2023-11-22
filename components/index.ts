@@ -11,6 +11,7 @@ import Contact from "./contact";
 
 // UI
 import SubmitButton from "./ui/submit-button";
+import ThemeSwitcher from "./theme-switcher";
 
 // Analytics
 import GoogleAnalytics from "./google-analytics";
@@ -24,5 +25,6 @@ export {
     Projects,
     Contact,
     SubmitButton,
+    ThemeSwitcher,
     GoogleAnalytics,
 };
