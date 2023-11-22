@@ -6,11 +6,13 @@ import { Button, Link } from "@nextui-org/react";
 // Data
 import { yearsOfExperience } from "@/lib/data";
 
+// Constants
+import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/constants";
+
 // Icons
 import { LuDownload } from "react-icons/lu";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { GITHUB_LINK, TWITTER_LINK } from "@/lib/constants";
 
 export default function Intro() {
     return (
@@ -48,6 +50,9 @@ export default function Intro() {
                     Contact me
                 </Button>
                 <Button
+                    as={Link}
+                    href="/assets/files/Ali_Abbasov_CV.pdf"
+                    download
                     className="text-md hover:scale-110"
                     radius="full"
                     color="secondary"
@@ -62,7 +67,7 @@ export default function Intro() {
                 <Link href={TWITTER_LINK} target="_blank">
                     <FaSquareXTwitter size={40} />
                 </Link>
-                <Link>
+                <Link href={LINKEDIN_LINK} target="_blank">
                     <FaLinkedin size={40} />
                 </Link>
             </div>
