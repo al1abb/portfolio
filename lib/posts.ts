@@ -12,11 +12,18 @@ import { remark } from "remark";
 import html from "remark-html";
 import rehypeHighlight from "rehype-highlight";
 
+// Types
+import { Post, PostWithoutContent } from "@/types";
+
 // --------------------------------
 // GET THE PATH OF THE POSTS FOLDER
 const postsDirectory = path.join(process.cwd(), "posts"); // process.cwd() returns the absolute path of the current working directory
 
-export function getSortedPostsData() {
+/**
+ * Get the markdown posts from the posts directory
+ * @returns {PostWithoutContent[]} - An array of posts
+ */
+export function getSortedPostsData(): PostWithoutContent[] {
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory); // [ 'pre-rendering.md', 'ssg-ssr.md' ]
 
@@ -50,6 +57,10 @@ export function getSortedPostsData() {
     });
 }
 
+/**
+ * Get the slugs of the posts
+ * @returns {string[]} - An array of post slugs
+ */
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
 
@@ -64,9 +75,12 @@ export function getAllPostIds() {
 
 // The returned array must have the params key otherwise `getStaticPaths` will fail
 
-// --------------------------------
-// GET THE DATA OF A SINGLE POST FROM THE ID
-export async function getPostData(id: string) {
+/**
+ * Get the post from a slug
+ * @param id - The slug of the post
+ * @returns {Promise<Post>} - The post
+ */
+export async function getPostData(id: string): Promise<Post> {
     const fullPath = path.join(postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
