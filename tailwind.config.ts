@@ -50,6 +50,34 @@ const config: Config = {
                         },
                     },
                 },
+                dark: {
+                    colors: {
+                        default: {
+                            DEFAULT: "#ffffff", // White
+                            foreground: "#000000", // Text color for default background
+                        },
+                        primary: {
+                            DEFAULT: "#ffffff", // White
+                            foreground: "#000000", // Text color for primary background
+                        },
+                        secondary: {
+                            DEFAULT: "#000000", // Black
+                            foreground: "#ffffff", // Text color for secondary background
+                        },
+                        danger: {
+                            DEFAULT: "#990000", // Darker red
+                            foreground: "#ffffff", // Text color for danger background
+                        },
+                        success: {
+                            DEFAULT: "#388e3c", // Darker green
+                            foreground: "#ffffff", // Text color for success background
+                        },
+                        warning: {
+                            DEFAULT: "#e65100", // Darker orange
+                            foreground: "#ffffff", // Text color for warning background
+                        },
+                    },
+                },
             },
         }),
     ],
