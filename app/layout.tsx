@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+
+// Styles
 import "./globals.css";
 
 // Providers
@@ -10,6 +12,9 @@ import { Footer, Navbar } from "@/components";
 
 // Toast
 import { Toaster } from "react-hot-toast";
+
+// Constants
+import { WEBSITE_URL } from "@/lib/constants";
 
 const outfit = Outfit({
     subsets: ["latin"],
@@ -28,6 +33,9 @@ export const metadata: Metadata = {
     robots: {
         index: true,
         follow: true,
+    },
+    alternates: {
+        canonical: WEBSITE_URL,
     },
 };
 
