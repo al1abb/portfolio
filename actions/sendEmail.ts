@@ -19,6 +19,7 @@ import { NODEMAILER_EMAIL, NODEMAILER_PW } from "@/lib/constants";
 // Nodemailer transporter
 const transporter = nodemailer.createTransport({
     service: "gmail",
+    secure: true,
     auth: {
         user: NODEMAILER_EMAIL,
         pass: NODEMAILER_PW,
