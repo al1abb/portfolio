@@ -17,6 +17,9 @@ import {
     NavbarMenuItem,
 } from "@nextui-org/react";
 
+// Components
+import { ThemeSwitcher } from "@/components";
+
 // Data
 import { links } from "@/lib/data";
 
@@ -27,7 +30,7 @@ export default function Navbar() {
         <NextUINavbar
             isBlurred
             shouldHideOnScroll
-            className="z-[999] sm:rounded-xl sm:w-[70%] mx-auto"
+            className="z-[999] sm:rounded-xl sm:w-[70%] max-w-[90rem] mx-auto dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
         >
@@ -44,7 +47,9 @@ export default function Navbar() {
                     </NavbarItem>
                 ))}
             </NavbarContent>
-            <NavbarContent></NavbarContent>
+            <NavbarContent justify="end">
+                <ThemeSwitcher />
+            </NavbarContent>
 
             <NavbarMenu>
                 {links.map((link, index) => (
