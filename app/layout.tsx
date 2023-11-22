@@ -8,7 +8,7 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 
 // Components
-import { Footer, Navbar } from "@/components";
+import { Navbar, Footer, GoogleAnalytics } from "@/components";
 
 // Toast
 import { Toaster } from "react-hot-toast";
@@ -55,6 +55,9 @@ export default function RootLayout({
                     <Footer />
 
                     <Toaster position="top-right" />
+
+                    {/* Analytics */}
+                    <GoogleAnalytics />
                 </Providers>
             </body>
         </html>
