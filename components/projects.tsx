@@ -42,7 +42,7 @@ function ProjectCard({
 }: ProjectType) {
     const projectCardBg = "bg-gradient-to-r from-gray-200 to-white";
     return (
-        <section className="max-w-md mx-auto bg-gray-200 rounded-lg overflow-hidden p-5">
+        <section className="max-w-md mx-auto bg-gray-200 bg-opacity-75 backdrop-blur-lg rounded-lg overflow-hidden p-5">
             <div className="relative w-full">
                 <Image
                     src={mainImage}
