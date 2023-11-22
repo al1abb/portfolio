@@ -19,6 +19,7 @@ import {
 
 // Data
 import { links } from "@/lib/data";
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
