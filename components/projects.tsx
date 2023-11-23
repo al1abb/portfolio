@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // NextUI
-import { Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
+import { Chip } from "@nextui-org/react";
 
 // Components
 import { SectionHeading } from "@/components";
@@ -52,6 +52,7 @@ function ProjectCard({
                     quality={95}
                     sizes="(min-width: 768px) 90vw, 75vw"
                     className="rounded-lg shadow-lg lg:h-60 sm:h-54"
+                    placeholder="blur"
                 />
             </div>
             <div className="flex flex-col p-6 gap-1">
