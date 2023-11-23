@@ -1,105 +1,128 @@
-// matter is a library that let's you parse the metadata in each markdown file.
-// the lib folder does not have an assigned name like the pages folder, so you can name it anything. It's usually convention to use lib or utils
+// Next MDX
+import { compileMDX } from "next-mdx-remote/rsc";
 
-import fs from "fs";
-import path from "path";
+// Rehype
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
 
-// Import 'gray-matter', library for parsing the metadata in each markdown file
-import matter from "gray-matter";
+// Components
+import { Video, CustomImage } from "@/components";
+
+// Constants
+import { GITHUB_TOKEN } from "@/lib/constants";
 
 // Types
-import { Post, PostWithoutContent } from "@/types";
+import { Meta, Post } from "@/types";
 
-// --------------------------------
-// GET THE PATH OF THE POSTS FOLDER
-const postsDirectory = path.join(process.cwd(), "posts"); // process.cwd() returns the absolute path of the current working directory
-
-/**
- * Get the markdown posts from the posts directory
- * @returns {PostWithoutContent[]} - An array of posts
- */
-export function getSortedPostsData(): PostWithoutContent[] {
-    // Get file names under /posts
-    const fileNames = fs.readdirSync(postsDirectory); // [ 'pre-rendering.md', 'ssg-ssr.md' ]
-
-    // Get the data from each file
-    const allPostsData = fileNames.map((filename) => {
-        // Remove ".md" from file name to get id
-        const slug = filename.replace(/\.mdx$/, ""); // slug = 'pre-rendering', 'ssg-ssr'
-
-        // Read markdown file as string
-        const fullPath = path.join(postsDirectory, filename);
-
-        const fileContents = fs.readFileSync(fullPath, "utf8"); // .md string content
-
-        // Use gray-matter to parse the post metadata section
-        const matterResult = matter(fileContents);
-
-        // Combine the data with the slug
-        return {
-            slug,
-            ...(matterResult.data as {
-                date: string;
-                title: string;
-                description: string;
-                tags: string[];
-            }),
-        };
-    });
-
-    // Sort posts by date and return
-    return allPostsData.sort((a, b) => {
-        if (a.date < b.date) {
-            return 1;
-        } else {
-            return -1;
+type FileTree = {
+    tree: [
+        {
+            path: string;
         }
-    });
-}
+    ];
+};
 
-/**
- * Get the slugs of the posts
- * @returns {string[]} - An array of post slugs
- */
-export function getAllPostIds() {
-    const fileNames = fs.readdirSync(postsDirectory);
-
-    return fileNames.map((fileName) => {
-        return {
-            params: {
-                slug: fileName.replace(/\.mdx$/, ""),
+export async function getPostByName(
+    fileName: string
+): Promise<Post | undefined> {
+    const res = await fetch(
+        `https://raw.githubusercontent.com/aliabb01/blogposts/main/${fileName}`,
+        {
+            headers: {
+                Accept: "application/vnd.github+json",
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+                "X-GitHub-Api-Version": "2022-11-28",
             },
-        };
+            next: {
+                tags: ["post"],
+            },
+        }
+    );
+
+    if (!res.ok) return undefined;
+
+    const rawMDX = await res.text();
+
+    if (rawMDX === "404: Not Found") return undefined;
+
+    const { frontmatter, content } = await compileMDX<{
+        title: string;
+        description: string;
+        date: string;
+        tags: string[];
+    }>({
+        source: rawMDX,
+        components: {
+            Video,
+            CustomImage,
+        },
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                rehypePlugins: [
+                    rehypeHighlight as any,
+                    rehypeSlug,
+                    [
+                        rehypeAutolinkHeadings,
+                        {
+                            behavior: "wrap",
+                        },
+                    ],
+                ],
+            },
+        },
     });
+
+    const slug = fileName.replace(/\.mdx$/, "");
+
+    const blogPostObj: Post = {
+        meta: {
+            slug,
+            title: frontmatter.title,
+            date: frontmatter.date,
+            description: frontmatter.description,
+            tags: frontmatter.tags,
+        },
+        content,
+    };
+
+    return blogPostObj;
 }
 
-// The returned array must have the params key otherwise `getStaticPaths` will fail
+export async function getPostsMeta(): Promise<Meta[] | undefined> {
+    const res = await fetch(
+        "https://api.github.com/repos/aliabb01/blogposts/git/trees/main?recursive=1",
 
-/**
- * Get the post from a slug
- * @param slug - The slug of the post
- * @returns {Promise<Post>} - The post
- */
-export async function getPostData(slug: string): Promise<Post> {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+        {
+            headers: {
+                Accept: "application/vnd.github+json",
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+            next: {
+                tags: ["postsMeta"],
+            },
+        }
+    );
 
-    // Use gray-matter to parse the post metadata section
-    const { data: matterResult, content } = matter(fileContents);
+    if (!res.ok) return undefined;
 
-    // Use remark to convert markdown into HTML string
-    // const processedContent = await serialize(matterResult.content);
-    // const content = processedContent.compiledSource;
+    const repoFiletree: FileTree = await res.json();
 
-    // Combine the data with the slug
-    return {
-        slug,
-        content,
-        ...(matterResult as {
-            date: string;
-            title: string;
-            description: string;
-            tags: string[];
-        }),
-    };
+    const filesArray = repoFiletree.tree
+        .map((obj) => obj.path)
+        .filter((path) => path.endsWith(".mdx"));
+
+    const posts: Meta[] = [];
+
+    for (const file of filesArray) {
+        const post = await getPostByName(file);
+        if (post) {
+            const { meta } = post;
+            posts.push(meta);
+        }
+    }
+
+    return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
