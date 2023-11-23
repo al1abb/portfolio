@@ -2,6 +2,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 
 import SectionHeading from "./section-heading";
+import ProjectCard from "./project-card";
 
 // Sections
 import Intro from "./intro";
@@ -11,12 +12,11 @@ import Contact from "./contact";
 
 // UI
 import SubmitButton from "./ui/submit-button";
-import ThemeSwitcher from "./theme-switcher";
-import Video from "./ui/video";
-import CustomImage from "./ui/custom-image";
+import ThemeSwitcher from "./ui/theme-switcher";
 
-// MDX
-import MDXComponents from "./mdx-components";
+// Markdown
+import Video from "./markdown/video";
+import CustomImage from "./markdown/custom-image";
 
 // Blog
 import PostListItem from "./post-list-item";
@@ -28,6 +28,7 @@ export {
     Navbar,
     Footer,
     SectionHeading,
+    ProjectCard,
     Intro,
     About,
     Projects,
@@ -36,7 +37,6 @@ export {
     ThemeSwitcher,
     Video,
     CustomImage,
-    MDXComponents,
     PostListItem,
     GoogleAnalytics,
 };
