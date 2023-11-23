@@ -13,6 +13,9 @@ import Contact from "./contact";
 import SubmitButton from "./ui/submit-button";
 import ThemeSwitcher from "./theme-switcher";
 
+// MDX
+import MDXComponents from "./mdx-components";
+
 // Analytics
 import GoogleAnalytics from "./google-analytics";
 
@@ -26,5 +29,6 @@ export {
     Contact,
     SubmitButton,
     ThemeSwitcher,
+    MDXComponents,
     GoogleAnalytics,
 };
