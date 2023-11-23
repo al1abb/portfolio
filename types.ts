@@ -12,10 +12,12 @@ export type ProjectType = {
 };
 
 export type Post = {
-    id: string;
-    content: string;
-    date: string;
+    slug: string;
     title: string;
+    date: string;
+    description: string;
+    content: string;
+    tags: string[];
 };
 
 export type PostWithoutContent = Omit<Post, "content">;
