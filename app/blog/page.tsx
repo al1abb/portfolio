@@ -1,14 +1,12 @@
 import { Metadata } from "next";
-import Link from "next/link";
 
 // Lib
-import { getSortedPostsData } from "@/lib/posts";
+import { getPostsMeta } from "@/lib/posts";
 
 // Components
-import { SectionHeading } from "@/components";
+import { PostListItem, SectionHeading } from "@/components";
 
-// Types
-import { PostWithoutContent } from "@/types";
+export const revalidate = 10;
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -20,27 +18,18 @@ export const metadata: Metadata = {
 };
 
 const BlogPage = async () => {
-    const allPostsData: PostWithoutContent[] = await getSortedPostsData();
+    const posts = await getPostsMeta();
+
+    if (!posts) {
+        return <p>No Posts Available</p>;
+    }
 
     return (
         <section className="flex flex-col items-center py-5 px-5">
             <SectionHeading>My Blog</SectionHeading>
             <ul>
-                {allPostsData.map(({ slug, title, date, description }) => (
-                    <li key={slug}>
-                        <div className="font-medium mb-1 mt-5">
-                            <Link
-                                className="text-xl text-blue-400 hover:text-blue-600"
-                                href={`/blog/${slug}`}
-                            >
-                                {title}
-                            </Link>
-                        </div>
-                        <p className="text-md text-gray-800">{description}</p>
-                        <small className="text-gray-500 font-medium">
-                            {date}
-                        </small>
-                    </li>
+                {posts.map((post) => (
+                    <PostListItem key={post.slug} post={post} />
                 ))}
             </ul>
         </section>

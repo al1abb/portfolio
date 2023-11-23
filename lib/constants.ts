@@ -11,4 +11,7 @@ export const TWITTER_LINK = "https://twitter.com/ali3abb";
 export const LINKEDIN_LINK = "https://www.linkedin.com/in/ali-abbasov/";
 
 // Website URL
-export const WEBSITE_URL = "https://aliabb.vercel.app";
+export const WEBSITE_URL = process.env.SITE_URL;
+
+// Github
+export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;

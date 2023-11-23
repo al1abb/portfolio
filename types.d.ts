@@ -11,13 +11,16 @@ export type ProjectType = {
     endDate?: string;
 };
 
-export type Post = {
+// Blog posts
+export type Meta = {
     slug: string;
     title: string;
-    date: string;
     description: string;
-    content: string;
+    date: string;
     tags: string[];
 };
 
-export type PostWithoutContent = Omit<Post, "content">;
+export type Post = {
+    meta: Meta;
+    content: ReactElement<any, string | JSXElementConstructor<any>>;
+};

@@ -12,9 +12,14 @@ import Contact from "./contact";
 // UI
 import SubmitButton from "./ui/submit-button";
 import ThemeSwitcher from "./theme-switcher";
+import Video from "./ui/video";
+import CustomImage from "./ui/custom-image";
 
 // MDX
 import MDXComponents from "./mdx-components";
+
+// Blog
+import PostListItem from "./post-list-item";
 
 // Analytics
 import GoogleAnalytics from "./google-analytics";
@@ -29,6 +34,9 @@ export {
     Contact,
     SubmitButton,
     ThemeSwitcher,
+    Video,
+    CustomImage,
     MDXComponents,
+    PostListItem,
     GoogleAnalytics,
 };

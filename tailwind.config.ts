@@ -19,6 +19,8 @@ const config: Config = {
     },
     darkMode: "class",
     plugins: [
+        require("@tailwindcss/typography"),
+        require("@tailwindcss/aspect-ratio"),
         nextui({
             addCommonColors: true,
             themes: {

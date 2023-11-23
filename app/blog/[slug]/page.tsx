@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+// Highlight JS styles
+import "highlight.js/styles/github-dark.css";
 
 // Lib
-import { getPostData } from "@/lib/posts";
+import { getPostsMeta, getPostByName } from "@/lib/posts";
 
-// Types
-import { Post } from "@/types";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { MDXComponents } from "@/components";
+export const revalidate = 10;
 
 type Props = {
     params: {
@@ -14,42 +15,61 @@ type Props = {
     };
 };
 
-export async function generateMetadata({ params }: Props) {
-    const postData: Post = await getPostData(params.slug);
+export async function generateStaticParams() {
+    const posts = await getPostsMeta();
 
-    console.log(postData);
+    if (!posts) {
+        return [];
+    }
+
+    return posts.map((post) => ({
+        slug: post.slug,
+    }));
+}
+
+export async function generateMetadata({ params }: Props) {
+    const post = await getPostByName(`${params.slug}.mdx`);
+
+    if (!post) {
+        return {
+            title: "Post Not Found",
+        };
+    }
 
     return {
-        title: postData.title,
+        title: post.meta.title,
     };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const postData: Post = await getPostData(params.slug);
+    const post = await getPostByName(`${params.slug}.mdx`);
+
+    if (!post) notFound();
+
+    const { meta, content } = post;
+
+    const tags = meta.tags.map((tag, i) => (
+        <Link key={i} href={`/blog/tags/${tag}`} className="capitalize">
+            {tag}
+        </Link>
+    ));
+
     return (
-        <article className="container mx-auto">
-            {/* Post Title */}
-            <h1 className="font-extrabold text-4xl mb-1">{postData.title}</h1>
+        <div className="container mx-auto prose prose-xl prose-slate dark:prose-invert">
+            <h2 className="font-extrabold text-4xl mb-1">{meta.title}</h2>
 
-            <div className="text-gray-500 font-medium mb-5">
-                {postData.date}
-            </div>
+            <p className="text-gray-500 font-medium mb-5">{meta.date}</p>
 
-            <div>
-                {postData.tags.map((tag) => (
-                    <span
-                        key={tag}
-                        className="bg-gray-200 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
-                    >
-                        {tag}
-                    </span>
-                ))}
-            </div>
+            <article>{content}</article>
 
-            {/* Post Content */}
-            <MDXRemote source={postData.content} components={MDXComponents} />
+            <section>
+                <h3>Related:</h3>
+                <div className="flex flex-row gap-4">{tags}</div>
+            </section>
 
-            <Link href="/blog">← Back to blog page</Link>
-        </article>
+            <Link href="/blog" className="mt-5">
+                ← Back to blog page
+            </Link>
+        </div>
     );
 }
