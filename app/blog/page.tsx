@@ -26,16 +26,17 @@ const BlogPage = async () => {
         <section className="flex flex-col items-center py-5 px-5">
             <SectionHeading>My Blog</SectionHeading>
             <ul>
-                {allPostsData.map(({ id, title, date }) => (
-                    <li key={id}>
+                {allPostsData.map(({ slug, title, date, description }) => (
+                    <li key={slug}>
                         <div className="font-medium mb-1 mt-5">
                             <Link
                                 className="text-xl text-blue-400 hover:text-blue-600"
-                                href={`/blog/${id}`}
+                                href={`/blog/${slug}`}
                             >
                                 {title}
                             </Link>
                         </div>
+                        <p className="text-md text-gray-800">{description}</p>
                         <small className="text-gray-500 font-medium">
                             {date}
                         </small>
