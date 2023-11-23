@@ -1,6 +1,11 @@
 // Constants
 import { WEB_DEV_START_DATE } from "@/lib/constants";
 
+// Images
+import Invoify from "@/public/assets/projects/invoify.png";
+import EvAl from "@/public/assets/projects/eval.png";
+import RRW from "@/public/assets/projects/rrw.png";
+
 // Utils
 import { calculateYearsDifference } from "@/lib/utils";
 
@@ -42,7 +47,7 @@ export const projects = [
             website: "https://invoify.vercel.app",
             github: "https://github.com/aliabb01/invoify",
         },
-        mainImage: "/assets/projects/invoify.png",
+        mainImage: Invoify,
     },
     {
         name: "EvAl",
@@ -53,7 +58,7 @@ export const projects = [
         links: {
             github: "https://github.com/aliabb01/eval",
         },
-        mainImage: "/assets/projects/eval.png",
+        mainImage: EvAl,
     },
     {
         name: "RRW",
@@ -64,6 +69,6 @@ export const projects = [
         links: {
             github: "https://github.com/aliabb01/rrw",
         },
-        mainImage: "/assets/projects/rrw.png",
+        mainImage: RRW,
     },
 ];
