@@ -1,7 +1,7 @@
 export type ProjectType = {
     name: string;
     description: string;
-    mainImage: string;
+    mainImage: StaticImageData;
     tags: string[];
     links: {
         website?: string;
