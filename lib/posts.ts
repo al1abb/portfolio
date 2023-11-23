@@ -7,11 +7,6 @@ import path from "path";
 // Import 'gray-matter', library for parsing the metadata in each markdown file
 import matter from "gray-matter";
 
-// Import 'remark', library for rendering markdown
-import { remark } from "remark";
-import html from "remark-html";
-import rehypeHighlight from "rehype-highlight";
-
 // Types
 import { Post, PostWithoutContent } from "@/types";
 
@@ -30,20 +25,25 @@ export function getSortedPostsData(): PostWithoutContent[] {
     // Get the data from each file
     const allPostsData = fileNames.map((filename) => {
         // Remove ".md" from file name to get id
-        const id = filename.replace(/\.md$/, ""); // id = 'pre-rendering', 'ssg-ssr'
+        const slug = filename.replace(/\.mdx$/, ""); // slug = 'pre-rendering', 'ssg-ssr'
 
         // Read markdown file as string
         const fullPath = path.join(postsDirectory, filename);
-        // /Users/ef/Desktop/nextjs-blog/posts/pre-rendering.md
+
         const fileContents = fs.readFileSync(fullPath, "utf8"); // .md string content
 
         // Use gray-matter to parse the post metadata section
         const matterResult = matter(fileContents);
 
-        // Combine the data with the id
+        // Combine the data with the slug
         return {
-            id,
-            ...(matterResult.data as { date: string; title: string }),
+            slug,
+            ...(matterResult.data as {
+                date: string;
+                title: string;
+                description: string;
+                tags: string[];
+            }),
         };
     });
 
@@ -67,7 +67,7 @@ export function getAllPostIds() {
     return fileNames.map((fileName) => {
         return {
             params: {
-                id: fileName.replace(/\.md$/, ""),
+                slug: fileName.replace(/\.mdx$/, ""),
             },
         };
     });
@@ -77,27 +77,29 @@ export function getAllPostIds() {
 
 /**
  * Get the post from a slug
- * @param id - The slug of the post
+ * @param slug - The slug of the post
  * @returns {Promise<Post>} - The post
  */
-export async function getPostData(id: string): Promise<Post> {
-    const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getPostData(slug: string): Promise<Post> {
+    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
+    const { data: matterResult, content } = matter(fileContents);
 
     // Use remark to convert markdown into HTML string
-    const processedContent = await remark()
-        .use(html)
-        .use(rehypeHighlight)
-        .process(matterResult.content);
-    const content = processedContent.toString();
+    // const processedContent = await serialize(matterResult.content);
+    // const content = processedContent.compiledSource;
 
-    // Combine the data with the id
+    // Combine the data with the slug
     return {
-        id,
+        slug,
         content,
-        ...(matterResult.data as { date: string; title: string }),
+        ...(matterResult as {
+            date: string;
+            title: string;
+            description: string;
+            tags: string[];
+        }),
     };
 }
