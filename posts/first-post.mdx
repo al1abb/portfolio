@@ -1,11 +1,13 @@
 ---
 title: "My First Blog Post"
 date: "2023-11-20"
+description: "This is my very first blog post"
+tags: ["Next.js", "MDX"]
 ---
 
-# My First Blog Post
+## My First Blog Post
 
-# MDX Example with js code
+## MDX Example with js code
 
 ```javascript
 const a = 1+4;
@@ -16,7 +18,13 @@ This is a simple MDX file that includes a React component.
 
 ## Some Markdown Content
 
-You can mix regular Markdown content with React components seamlessly.
+```jsx
+export function newComponent() {
+    return (
+        <p>This is a text component within mdx</p>
+    )
+}
+```
 
 ## Another React Component
 
