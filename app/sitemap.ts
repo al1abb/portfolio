@@ -22,8 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const changeFrequency: ChangeFrequencyType = "daily";
     const allPostsData: PostWithoutContent[] = await getSortedPostsData();
 
-    const posts = allPostsData.map(({ id, date }) => ({
-        url: `${WEBSITE_URL}/blog/${id}`,
+    const posts = allPostsData.map(({ slug, date }) => ({
+        url: `${WEBSITE_URL}/blog/${slug}`,
         lastModified: date,
         changeFrequency,
     }));
