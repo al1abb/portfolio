@@ -20,8 +20,12 @@ export default function PostListItem({ post }: Props) {
                     {title}
                 </Link>
             </div>
-            <p className="text-md text-gray-800">{description}</p>
-            <small className="text-gray-500 font-medium">{date}</small>
+            <p className="text-md text-gray-900 dark:text-gray-400">
+                {description}
+            </p>
+            <small className="text-gray-500 dark:text-gray-100 font-medium">
+                {date}
+            </small>
         </li>
     );
 }
