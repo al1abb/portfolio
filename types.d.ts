@@ -18,6 +18,7 @@ export type Meta = {
     description: string;
     date: string;
     tags: string[];
+    readingTime: ReadingType;
 };
 
 export type Post = {

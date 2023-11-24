@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 // Highlight JS styles
 import "highlight.js/styles/github-dark.css";
 
+// Components
+import { ProgressBar } from "@/components";
+
 // Lib
 import { getPostsMeta, getPostByName } from "@/lib/posts";
 
@@ -56,9 +59,12 @@ export default async function BlogPostPage({ params }: Props) {
 
     return (
         <div className="container mx-auto prose prose-xl prose-slate dark:prose-invert">
+            <ProgressBar />
             <h2 className="font-extrabold text-4xl mb-1">{meta.title}</h2>
 
             <p className="text-gray-500 font-medium mb-5">{meta.date}</p>
+
+            <p>{meta.readingTime}</p>
 
             <article>{content}</article>
 

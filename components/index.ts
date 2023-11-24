@@ -13,6 +13,7 @@ import Contact from "./contact";
 // UI
 import SubmitButton from "./ui/submit-button";
 import ThemeSwitcher from "./ui/theme-switcher";
+import ProgressBar from "./ui/progress-bar";
 
 // Markdown
 import Video from "./markdown/video";
@@ -35,6 +36,7 @@ export {
     Contact,
     SubmitButton,
     ThemeSwitcher,
+    ProgressBar,
     Video,
     CustomImage,
     PostListItem,

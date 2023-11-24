@@ -5,6 +5,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeTOC from "rehype-toc";
+
+import { readingTime } from "reading-time-estimator";
 
 // Components
 import { Video, CustomImage } from "@/components";
@@ -62,7 +66,9 @@ export async function getPostByName(
             mdxOptions: {
                 rehypePlugins: [
                     rehypeHighlight as any,
+                    rehypePrettyCode,
                     rehypeSlug,
+                    rehypeTOC,
                     [
                         rehypeAutolinkHeadings,
                         {
@@ -76,6 +82,11 @@ export async function getPostByName(
 
     const slug = fileName.replace(/\.mdx$/, "");
 
+    // TODO: Move this to utils
+    // Calculate read time
+    const ReactDOMServer = (await import("react-dom/server")).default;
+    const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
+
     const blogPostObj: Post = {
         meta: {
             slug,
@@ -83,6 +94,7 @@ export async function getPostByName(
             date: frontmatter.date,
             description: frontmatter.description,
             tags: frontmatter.tags,
+            readingTime: readTime.text,
         },
         content,
     };
