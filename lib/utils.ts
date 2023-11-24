@@ -35,3 +35,15 @@ export const calculateYearsDifference = (
     const timeDifference = endDate.getTime() - startDate.getTime();
     return Math.ceil(timeDifference / millisecondsInYear);
 };
+
+/**
+ * Turn a date string into a formatted date
+ * @param dateString - The date string
+ *
+ * @returns {string} - The formatted date
+ */
+export default function getFormattedDate(dateString: string): string {
+    return new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
+        new Date(dateString)
+    );
+}
