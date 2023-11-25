@@ -82,9 +82,11 @@ export async function getPostByName(
 
     const slug = fileName.replace(/\.mdx$/, "");
 
-    // TODO: Move this to utils
-    // Calculate read time
+    // TODO: Move these to utils
     const ReactDOMServer = (await import("react-dom/server")).default;
+
+    // Calculate read time
+    // ? Next line does not get rid of html markup
     const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
 
     const blogPostObj: Post = {
