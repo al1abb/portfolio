@@ -104,7 +104,6 @@ export async function getPostByName(
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
     const res = await fetch(
         "https://api.github.com/repos/aliabb01/blogposts/git/trees/main?recursive=1",
-
         {
             headers: {
                 Accept: "application/vnd.github+json",
