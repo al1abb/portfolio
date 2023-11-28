@@ -38,9 +38,6 @@ export async function getPostByName(
                 Authorization: `Bearer ${GITHUB_TOKEN}`,
                 "X-GitHub-Api-Version": "2022-11-28",
             },
-            next: {
-                tags: ["post"],
-            },
         }
     );
 
@@ -113,9 +110,6 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
                 Accept: "application/vnd.github+json",
                 Authorization: `Bearer ${GITHUB_TOKEN}`,
                 "X-GitHub-Api-Version": "2022-11-28",
-            },
-            next: {
-                tags: ["postsMeta"],
             },
         }
     );
