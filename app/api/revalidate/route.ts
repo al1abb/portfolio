@@ -6,30 +6,18 @@ export async function GET(request: NextRequest) {
     const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
     if (secret !== SECRET_TOKEN) {
-        return new NextResponse(
-            JSON.stringify({
-                message: "Invalid Token",
-            }),
-            {
-                status: 401,
-                statusText: "Unauthorized",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        );
+        return new NextResponse(JSON.stringify({ message: "Invalid Token" }), {
+            status: 401,
+            statusText: "Unauthorized",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
     }
 
-    const path = request.nextUrl.searchParams.get("path");
+    const path = request.nextUrl.searchParams.get("path") || "/";
 
-    if (path) {
-        revalidatePath(path);
-        return NextResponse.json({ revalidated: true, now: Date.now() });
-    }
+    revalidatePath(path);
 
-    return NextResponse.json({
-        revalidated: false,
-        now: Date.now(),
-        message: "Missing path to revalidate",
-    });
+    return NextResponse.json({ revalidated: true });
 }
