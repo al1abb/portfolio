@@ -6,7 +6,7 @@ import { getPostsMeta } from "@/lib/posts";
 // Components
 import { PostListItem, SectionHeading } from "@/components";
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 export const metadata: Metadata = {
     title: "Blog",
