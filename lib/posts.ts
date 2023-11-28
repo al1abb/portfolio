@@ -18,7 +18,6 @@ import { GITHUB_TOKEN } from "@/lib/constants";
 
 // Types
 import { Meta, Post } from "@/types";
-import { revalidatePath } from "next/cache";
 
 type FileTree = {
     tree: [

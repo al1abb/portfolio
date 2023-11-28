@@ -6,7 +6,7 @@ import { PostListItem, SectionHeading } from "@/components";
 // Posts
 import { getPostsMeta } from "@/lib/posts";
 
-export const revalidate = 10;
+export const revalidate = 0;
 
 type Props = {
     params: {

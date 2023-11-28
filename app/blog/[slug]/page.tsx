@@ -11,7 +11,7 @@ import { ProgressBar } from "@/components";
 import { getPostsMeta, getPostByName } from "@/lib/posts";
 import getFormattedDate from "@/lib/utils";
 
-export const revalidate = 10;
+export const revalidate = 0;
 
 type Props = {
     params: {
