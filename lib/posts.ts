@@ -18,6 +18,7 @@ import { GITHUB_TOKEN } from "@/lib/constants";
 
 // Types
 import { Meta, Post } from "@/types";
+import { revalidatePath } from "next/cache";
 
 type FileTree = {
     tree: [
@@ -30,6 +31,8 @@ type FileTree = {
 export async function getPostByName(
     fileName: string
 ): Promise<Post | undefined> {
+    revalidatePath("/blog");
+
     const res = await fetch(
         `https://raw.githubusercontent.com/aliabb01/blogposts/main/${fileName}`,
         {
@@ -102,6 +105,7 @@ export async function getPostByName(
 }
 
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
+    revalidatePath("/blog");
     const res = await fetch(
         "https://api.github.com/repos/aliabb01/blogposts/git/trees/main?recursive=1",
 
