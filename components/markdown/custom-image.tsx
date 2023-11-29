@@ -14,8 +14,8 @@ export default function CustomImage({ src, alt, priority = false }: Props) {
                 src={src}
                 alt={alt}
                 priority={priority}
-                width={650}
-                height={650}
+                width={800}
+                height={800}
             />
         </div>
     );
