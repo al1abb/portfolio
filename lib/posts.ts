@@ -79,12 +79,13 @@ export async function getPostByName(
 
     const slug = fileName.replace(/\.mdx$/, "");
 
-    // TODO: Move these to utils
+    // TODO: Figure out how to fix this so that it works with next/image
     const ReactDOMServer = (await import("react-dom/server")).default;
 
     // Calculate read time
     // ? Next line does not get rid of html markup
-    const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
+    // const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
+    // console.log(readTime);
 
     const blogPostObj: Post = {
         meta: {
@@ -93,7 +94,7 @@ export async function getPostByName(
             date: frontmatter.date,
             description: frontmatter.description,
             tags: frontmatter.tags,
-            readingTime: readTime.text,
+            readingTime: "",
         },
         content,
     };
