@@ -39,8 +39,7 @@ export default function ProjectCard({
                     {tags.map((tag, index) => (
                         <Chip
                             key={index}
-                            className="bg-black/[0.8] dark:text-white/70 uppercase tracking-wider"
-                            size="sm"
+                            className="bg-gray-800 dark:bg-gray-200 tracking-wider"
                         >
                             {tag}
                         </Chip>
@@ -51,7 +50,7 @@ export default function ProjectCard({
                         <Link
                             href={links.website}
                             target="_blank"
-                            className="underline"
+                            className="text-link"
                         >
                             View live
                         </Link>
@@ -60,7 +59,7 @@ export default function ProjectCard({
                         <Link
                             href={links.github}
                             target="_blank"
-                            className="underline"
+                            className="text-link"
                         >
                             <p>Source code</p>
                         </Link>
