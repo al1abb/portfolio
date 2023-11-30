@@ -20,7 +20,7 @@ import ProfileImage from "@/public/assets/profile.jpg";
 export default function Intro() {
     return (
         <section className="flex flex-col items-center gap-5">
-            <div className="relative shadow-lg rounded-full w-fit h-fit border-8 border-solid border-green-400">
+            <div className="relative shadow-lg rounded-full w-fit h-fit border-8 border-solid border-green-500">
                 <Image
                     className="rounded-full relative z-10"
                     src={ProfileImage}
@@ -29,7 +29,7 @@ export default function Intro() {
                     height={150}
                     quality={95}
                     placeholder="blur"
-                ></Image>
+                />
 
                 <div className="z-0 absolute w-[18rem] h-[18rem] top-0 right-0 bg-green-500 rounded-full blur-[12rem] xs:blur-[30rem] sm:blur-[20rem] md:blur-[10rem] lg:blur-[10rem] xl:blur-[12rem] dark:w-[20rem] dark:h-[20rem] dark:blur-[14rem]"></div>
             </div>
