@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 
 // Components
 import { SectionHeading } from "@/components";
@@ -8,15 +8,25 @@ export default function About() {
         <section id="about" className="max-w-[45rem] text-center leading-8">
             <SectionHeading>About me</SectionHeading>
             <p className="mb-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Ducimus quas iste ipsa iure magni molestiae sint. Dicta optio
-                iure odio.
+                Started learning web development in January of 2020 and never
+                stopped since. My journey has been filled with endless
+                challenges and opportunities. I&apos;m passionate about creating
+                user-friendly and efficient web applications.
             </p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                minus, repellendus expedita dolores quod eaque. Quisquam facilis
-                natus ullam id accusamus deleniti porro aliquid aut maxime
-                asperiores, ipsa quis fugit.
+                My tech stack includes{" "}
+                <span className="font-bold">
+                    Next.js, React, Vue.js, Laravel
+                </span>{" "}
+                and more. I&apos;m always looking for new and exciting projects
+                to work on.
+            </p>
+            <p>
+                I also have a blog where I share insights into the challenges
+                tasks I overcome. You can find it{" "}
+                <Link className="text-link" href={"/blog"}>
+                    here
+                </Link>
             </p>
         </section>
     );
