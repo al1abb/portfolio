@@ -16,9 +16,9 @@ export default function Contact() {
     return (
         <section id="contact">
             <SectionHeading>Contact me</SectionHeading>
-            <p>
+            <p className="mb-3">
                 Please contact me directly at{" "}
-                <a href="mailto:ali3abbasov@gmail" className="underline">
+                <a href="mailto:ali3abbasov@gmail.com" className="text-link">
                     ali3abbasov@gmail.com
                 </a>{" "}
                 or through this form
