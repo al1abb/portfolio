@@ -84,8 +84,7 @@ export async function getPostByName(
 
     // Calculate read time
     // ? Next line does not get rid of html markup
-    // const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
-    // console.log(readTime);
+    const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
 
     const blogPostObj: Post = {
         meta: {
@@ -94,7 +93,7 @@ export async function getPostByName(
             date: frontmatter.date,
             description: frontmatter.description,
             tags: frontmatter.tags,
-            readingTime: "",
+            readingTime: readTime.text,
         },
         content,
     };
