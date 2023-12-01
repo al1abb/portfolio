@@ -1,4 +1,4 @@
-import Image from "next/image";
+import dynamic from "next/dynamic";
 
 type Props = {
     src: string;
@@ -6,10 +6,12 @@ type Props = {
     priority?: boolean;
 };
 
+const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
+
 export default function CustomImage({ src, alt, priority = false }: Props) {
     return (
         <div className="w-full h-full">
-            <Image
+            <DynamicImage
                 className="rounded-lg mx-auto"
                 src={src}
                 alt={alt}
