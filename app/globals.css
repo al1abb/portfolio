@@ -9,3 +9,7 @@
 .chip {
     @apply bg-gray-800 dark:bg-gray-200 no-underline tracking-wider;
 }
+
+.toc-link {
+    @apply no-underline hover:text-blue-500;
+}
