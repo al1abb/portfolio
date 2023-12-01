@@ -37,10 +37,7 @@ export default function ProjectCard({
                 </p>
                 <div className="flex flex-wrap gap-2 my-3">
                     {tags.map((tag, index) => (
-                        <Chip
-                            key={index}
-                            className="bg-gray-800 dark:bg-gray-200 tracking-wider"
-                        >
+                        <Chip key={index} className="chip">
                             {tag}
                         </Chip>
                     ))}

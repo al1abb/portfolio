@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 // Highlight JS styles
 import "highlight.js/styles/github-dark.css";
 
+// NextUI
+import { Chip } from "@nextui-org/react";
+
 // Components
 import { ProgressBar } from "@/components";
 
@@ -55,13 +58,9 @@ export default async function BlogPostPage({ params }: Props) {
     const pubDate = getFormattedDate(meta.date);
 
     const tags = meta.tags.map((tag, i) => (
-        <Link
-            key={i}
-            href={`/blog/tags/${tag}`}
-            className="bg-gray-300 text-gray-800 dark:bg-blue-700 dark:text-white rounded-full px-2 text-base no-underline"
-        >
+        <Chip as={Link} key={i} href={`/blog/tags/${tag}`} className="chip">
             {tag}
-        </Link>
+        </Chip>
     ));
 
     return (
