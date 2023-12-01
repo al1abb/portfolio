@@ -4,6 +4,9 @@ import { Outfit } from "next/font/google";
 // Styles
 import "./globals.css";
 
+// Favicon
+import Favicon from "@/public/assets/favicon/favicon.ico";
+
 // Providers
 import { Providers } from "@/app/providers";
 
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
     description:
         "Ali Abbasov is a full stack web developer with over 4 years of experience.",
     icons: {
-        icon: "/favicon.ico",
+        icon: Favicon.src,
     },
     robots: {
         index: true,
