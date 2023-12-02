@@ -31,7 +31,7 @@ export default function Intro() {
                     placeholder="blur"
                 />
 
-                <div className="z-0 absolute md:w-[18rem] md:h-[18rem] w-[10rem] h-[10rem] top-0 right-0 bg-green-500 rounded-full blur-[12rem] xs:blur-[30rem] xl:blur-[12rem] dark:blur-[14rem]"></div>
+                <div className="z-0 absolute md:w-[18rem] md:h-[18rem] w-[12rem] h-[12rem] top-0 right-0 bg-green-500 rounded-full blur-[12rem] xs:blur-[30rem] xl:blur-[12rem] dark:blur-[14rem]"></div>
             </div>
 
             <div className="flex flex-col gap-4 z-10">
