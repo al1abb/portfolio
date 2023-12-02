@@ -1,4 +1,4 @@
-// Next MDX
+// Next MDX remote
 import { compileMDX } from "next-mdx-remote/rsc";
 
 // Rehype
@@ -8,13 +8,14 @@ import rehypeHighlight from "rehype-highlight";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeTOC from "rehype-toc";
 
-import { readingTime } from "reading-time-estimator";
-
 // Components
 import { Video, CustomImage } from "@/components";
 
 // Constants
 import { GITHUB_TOKEN } from "@/lib/constants";
+
+// Utils
+import { calculateReadingTime } from "@/lib/utils";
 
 // Types
 import { Meta, Post } from "@/types";
@@ -27,6 +28,12 @@ type FileTree = {
     ];
 };
 
+/**
+ * Get a post by its name
+ * @param fileName - The name of the file
+ *
+ * @returns {Promise<Post | undefined>} - The post
+ */
 export async function getPostByName(
     fileName: string
 ): Promise<Post | undefined> {
@@ -79,12 +86,7 @@ export async function getPostByName(
 
     const slug = fileName.replace(/\.mdx$/, "");
 
-    // TODO: Figure out how to fix this so that it works with next/image
-    const ReactDOMServer = (await import("react-dom/server")).default;
-
-    // Calculate read time
-    // ? Next line does not get rid of html markup
-    const readTime = readingTime(ReactDOMServer.renderToStaticMarkup(content));
+    const readTime = await calculateReadingTime(content);
 
     const blogPostObj: Post = {
         meta: {
@@ -101,6 +103,11 @@ export async function getPostByName(
     return blogPostObj;
 }
 
+/**
+ * Get all blog posts sorted by date
+ *
+ * @returns {Promise<Meta[] | undefined>} - The blog posts
+ */
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
     const res = await fetch(
         "https://api.github.com/repos/aliabb01/blogposts/git/trees/main?recursive=1",
