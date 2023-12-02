@@ -12,7 +12,7 @@ import { ProgressBar } from "@/components";
 
 // Lib
 import { getPostsMeta, getPostByName } from "@/lib/posts";
-import getFormattedDate from "@/lib/utils";
+import { getFormattedDate } from "@/lib/utils";
 
 export const revalidate = 10;
 
@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: Props) {
 
     return {
         title: post.meta.title,
+        description: post.meta.description,
     };
 }
 
