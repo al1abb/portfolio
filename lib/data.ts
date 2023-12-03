@@ -4,8 +4,8 @@ import EvAl from "@/public/assets/projects/eval.png";
 import RRW from "@/public/assets/projects/rrw.png";
 
 // Lib
-import { WEB_DEV_START_DATE } from "@/lib/constants";
 import { calculateYearsDifference } from "@/lib/utils";
+import { WEB_DEV_START_DATE } from "@/lib/constants";
 
 export const links = [
     {

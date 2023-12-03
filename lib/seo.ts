@@ -1,4 +1,4 @@
-// Constants
+// Lib
 import {
     GITHUB_LINK,
     LINKEDIN_LINK,

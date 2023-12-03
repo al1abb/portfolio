@@ -11,11 +11,9 @@ import rehypeTOC from "rehype-toc";
 // Components
 import { Video, CustomImage } from "@/components";
 
-// Constants
-import { GITHUB_TOKEN } from "@/lib/constants";
-
-// Utils
+// Lib
 import { calculateReadingTime } from "@/lib/utils";
+import { GITHUB_TOKEN } from "@/lib/constants";
 
 // Types
 import { Meta, Post } from "@/types";

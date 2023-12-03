@@ -17,8 +17,8 @@ import { Navbar, Footer, GoogleAnalytics } from "@/components";
 import { Toaster } from "react-hot-toast";
 
 // Lib
-import { WEBSITE_URL } from "@/lib/constants";
 import { jsonLd } from "@/lib/seo";
+import { WEBSITE_URL } from "@/lib/constants";
 
 const outfit = Outfit({
     subsets: ["latin"],

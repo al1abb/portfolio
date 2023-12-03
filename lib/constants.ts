@@ -2,6 +2,9 @@
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
 export const NODEMAILER_PW = process.env.NODEMAILER_PW;
 
+// Github
+export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
 // Data
 export const WEB_DEV_START_DATE = new Date("2020-01-23");
 
@@ -12,6 +15,3 @@ export const LINKEDIN_LINK = "https://www.linkedin.com/in/ali-abbasov/";
 
 // Website URL
 export const WEBSITE_URL = process.env.SITE_URL;
-
-// Github
-export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
