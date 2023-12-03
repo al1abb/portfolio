@@ -6,7 +6,7 @@ import {
     WEBSITE_URL,
 } from "@/lib/constants";
 
-export const jsonLd = {
+export const JSONLD = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Ali Abbasov",
@@ -34,3 +34,9 @@ export const jsonLd = {
         },
     ],
 };
+
+export const ROOTKEYWORDS = [
+    "Ali Abbasov",
+    "Full Stack Web Developer",
+    "aliabb01",
+];
