@@ -16,27 +16,13 @@ import { Navbar, Footer, GoogleAnalytics } from "@/components";
 // Toast
 import { Toaster } from "react-hot-toast";
 
-// Constants
-import {
-    GITHUB_LINK,
-    LINKEDIN_LINK,
-    TWITTER_LINK,
-    WEBSITE_URL,
-} from "@/lib/constants";
+// Lib
+import { WEBSITE_URL } from "@/lib/constants";
+import { jsonLd } from "@/lib/seo";
 
 const outfit = Outfit({
     subsets: ["latin"],
 });
-
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Ali Abbasov",
-    jobTitle: "Full Stack Web Developer",
-    url: "https://aliabb.vercel.app",
-    sameAs: [GITHUB_LINK, TWITTER_LINK, LINKEDIN_LINK],
-    image: "https://aliabb.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile.8a952696.jpg&w=256&q=95",
-};
 
 export const metadata: Metadata = {
     title: {
