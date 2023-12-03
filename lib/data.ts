@@ -1,12 +1,10 @@
-// Constants
-import { WEB_DEV_START_DATE } from "@/lib/constants";
-
 // Images
 import Invoify from "@/public/assets/projects/invoify.png";
 import EvAl from "@/public/assets/projects/eval.png";
 import RRW from "@/public/assets/projects/rrw.png";
 
-// Utils
+// Lib
+import { WEB_DEV_START_DATE } from "@/lib/constants";
 import { calculateYearsDifference } from "@/lib/utils";
 
 export const links = [
