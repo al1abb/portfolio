@@ -10,14 +10,14 @@ import Favicon from "@/public/assets/favicon/favicon.ico";
 // Providers
 import { Providers } from "@/app/providers";
 
+// React Hot Toast
+import { Toaster } from "react-hot-toast";
+
 // Components
 import { Navbar, Footer, GoogleAnalytics } from "@/components";
 
-// Toast
-import { Toaster } from "react-hot-toast";
-
 // Lib
-import { jsonLd } from "@/lib/seo";
+import { ROOTKEYWORDS, JSONLD } from "@/lib/seo";
 import { WEBSITE_URL } from "@/lib/constants";
 
 const outfit = Outfit({
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     },
     description:
         "Ali Abbasov is a full stack web developer with over 4 years of experience.",
-    keywords: ["Ali Abbasov", "Full Stack Web Developer", "aliabb01"],
+    keywords: ROOTKEYWORDS,
     icons: {
         icon: Favicon.src,
     },
@@ -58,7 +58,7 @@ export default function RootLayout({
                 <script
                     type="application/ld+json"
                     id="json-ld"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }}
                 />
             </head>
             <body
