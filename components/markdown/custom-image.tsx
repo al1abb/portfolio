@@ -4,6 +4,7 @@ type Props = {
     src: string;
     alt: string;
     priority?: boolean;
+    unoptimized?: boolean;
 };
 
 const DynamicImage = dynamic(() => import("next/image"), {
@@ -11,7 +12,12 @@ const DynamicImage = dynamic(() => import("next/image"), {
     loading: () => <p>Loading...</p>,
 });
 
-export default function CustomImage({ src, alt, priority = false }: Props) {
+export default function CustomImage({
+    src,
+    alt,
+    priority = false,
+    unoptimized = false,
+}: Props) {
     return (
         <div className="w-full h-full">
             <DynamicImage
@@ -21,6 +27,7 @@ export default function CustomImage({ src, alt, priority = false }: Props) {
                 priority={priority}
                 width={800}
                 height={800}
+                unoptimized={unoptimized}
             />
         </div>
     );
