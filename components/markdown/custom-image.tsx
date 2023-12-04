@@ -6,7 +6,10 @@ type Props = {
     priority?: boolean;
 };
 
-const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
+const DynamicImage = dynamic(() => import("next/image"), {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+});
 
 export default function CustomImage({ src, alt, priority = false }: Props) {
     return (
