@@ -34,10 +34,12 @@ export default function Navbar() {
             onMenuOpenChange={setIsMenuOpen}
         >
             <NavbarContent>
-                <NavbarMenuToggle
-                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="sm:hidden"
-                />
+                <li>
+                    <NavbarMenuToggle
+                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                        className="sm:hidden"
+                    />
+                </li>
             </NavbarContent>
             <NavbarContent className="hidden sm:flex" justify="start">
                 {links.map((link) => (

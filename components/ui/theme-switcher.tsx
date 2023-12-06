@@ -24,18 +24,20 @@ export default function ThemeSwitcher() {
     if (!mounted) return <Skeleton className="rounded-full w-14 h-8 mr-2" />;
 
     return (
-        <Switch
-            size="lg"
-            isSelected={theme === "dark" ? true : false}
-            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-            thumbIcon={({ isSelected, className }) =>
-                isSelected ? (
-                    <FaMoon className={`className text-blue-700`} />
-                ) : (
-                    <FaSun className={`className text-yellow-500`} />
-                )
-            }
-            aria-label="Theme Switcher"
-        />
+        <li>
+            <Switch
+                size="lg"
+                isSelected={theme === "dark" ? true : false}
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+                thumbIcon={({ isSelected, className }) =>
+                    isSelected ? (
+                        <FaMoon className={`className text-blue-700`} />
+                    ) : (
+                        <FaSun className={`className text-yellow-500`} />
+                    )
+                }
+                aria-label="Theme Switcher"
+            />
+        </li>
     );
 }
