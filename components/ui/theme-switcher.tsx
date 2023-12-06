@@ -35,6 +35,7 @@ export default function ThemeSwitcher() {
                     <FaSun className={`className text-yellow-500`} />
                 )
             }
+            aria-label="Theme Switcher"
         />
     );
 }
