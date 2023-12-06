@@ -11,12 +11,12 @@ export default function GoogleAnalytics() {
             {process.env.NODE_ENV === "production" && (
                 <>
                     <Script
-                        strategy="lazyOnLoad"
+                        strategy="lazyOnload"
                         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
                     />
                     <Script
                         id="gtag-init"
-                        strategy="lazyOnLoad"
+                        strategy="lazyOnload"
                         dangerouslySetInnerHTML={{
                             __html: gtag.DATALAYER,
                         }}
