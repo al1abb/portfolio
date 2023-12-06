@@ -23,9 +23,9 @@ export default function About() {
             </p>
             <p>
                 I also have a blog where I share insights into the challenges
-                tasks I overcome. You can find it{" "}
+                and tasks I overcome. You can find it here:{" "}
                 <Link className="text-link" href={"/blog"}>
-                    here
+                    Blog
                 </Link>
             </p>
         </section>
