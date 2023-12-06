@@ -67,12 +67,15 @@ export default function Intro() {
                 </Button>
                 <Link href={GITHUB_LINK} target="_blank">
                     <FaGithubSquare size={40} />
+                    <span className="sr-only">GitHub Profile</span>
                 </Link>
                 <Link href={TWITTER_LINK} target="_blank">
                     <FaSquareXTwitter size={40} />
+                    <span className="sr-only">Twitter/X Profile</span>
                 </Link>
                 <Link href={LINKEDIN_LINK} target="_blank">
                     <FaLinkedin size={40} />
+                    <span className="sr-only">Linkedin Profile</span>
                 </Link>
             </div>
         </section>
