@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-// Lib
-import { getPostsMeta } from "@/lib/posts";
-
 // Components
 import { PostListItem, SectionHeading } from "@/components";
+
+// Lib
+import { getPostsMeta } from "@/lib/posts";
+import { BLOG_URL } from "@/lib/constants";
 
 // Icons
 import { LuRss } from "react-icons/lu";
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     robots: {
         index: true,
         follow: true,
+    },
+    alternates: {
+        canonical: BLOG_URL,
     },
 };
 
@@ -36,7 +40,7 @@ const BlogPage = async () => {
                 href="/blog/rss"
                 className="mb-3 hover:underline underline-offset-4 decoration-current"
             >
-                <p className="flex gap-2 text-[#f26522] dark:text-[#ff8c00]">
+                <p className="flex gap-2">
                     <LuRss size={24} /> RSS Feed
                 </p>
             </Link>
