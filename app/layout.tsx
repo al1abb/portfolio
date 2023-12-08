@@ -18,7 +18,7 @@ import { Navbar, Footer, GoogleAnalytics } from "@/components";
 
 // Lib
 import { ROOTKEYWORDS, JSONLD } from "@/lib/seo";
-import { WEBSITE_URL } from "@/lib/constants";
+import { BLOG_RSS_URL, WEBSITE_URL } from "@/lib/constants";
 
 const outfit = Outfit({
     subsets: ["latin"],
@@ -41,6 +41,14 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: WEBSITE_URL,
+        types: {
+            "application/rss+xml": [
+                {
+                    url: BLOG_RSS_URL,
+                    title: "RSS Feed for my Blogs",
+                },
+            ],
+        },
     },
     verification: {
         google: "niScX4JYveit46wC1LTfuJb0qx7DUiiDnGPwtce7VGo",
