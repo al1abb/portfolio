@@ -53,6 +53,10 @@ export const metadata: Metadata = {
     verification: {
         google: "niScX4JYveit46wC1LTfuJb0qx7DUiiDnGPwtce7VGo",
     },
+    authors: {
+        name: "Ali Abbasov",
+        url: WEBSITE_URL,
+    },
 };
 
 export default function RootLayout({
