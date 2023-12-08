@@ -15,3 +15,4 @@ export const LINKEDIN_LINK = "https://www.linkedin.com/in/ali-abbasov/";
 
 // Website URL
 export const WEBSITE_URL = process.env.SITE_URL;
+export const BLOG_RSS_URL = `${WEBSITE_URL}/blog/rss.xml`;
