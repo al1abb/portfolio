@@ -102,9 +102,9 @@ export async function getPostByName(
 }
 
 /**
- * Get all blog posts sorted by date
+ * Get all blog posts meta information sorted by date
  *
- * @returns {Promise<Meta[] | undefined>} - The blog posts
+ * @returns {Promise<Meta[] | undefined>} - The blog posts meta
  */
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
     const res = await fetch(
