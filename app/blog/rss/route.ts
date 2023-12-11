@@ -28,7 +28,7 @@ export async function GET() {
     return new NextResponse(feed.rss2(), {
         status: 200,
         headers: {
-            "Content-Type": "application/xml; charset=utf-8",
+            "Content-Type": "application/rss+xml; charset=utf-8",
         },
     });
 }
