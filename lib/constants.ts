@@ -9,8 +9,8 @@ export const NODEMAILER_PW = process.env.NODEMAILER_PW;
 export const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Social links
-export const GITHUB_LINK = "https://github.com/aliabb01";
-export const TWITTER_LINK = "https://twitter.com/ali3abb";
+export const GITHUB_LINK = "https://github.com/al1abb";
+export const TWITTER_LINK = "https://x.com/al1abb";
 export const LINKEDIN_LINK = "https://www.linkedin.com/in/ali-abbasov/";
 
 // Website URLs

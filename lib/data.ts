@@ -5,7 +5,7 @@ import RRW from "@/public/assets/projects/rrw.png";
 
 // Lib
 import { calculateYearsDifference } from "@/lib/utils";
-import { WEB_DEV_START_DATE } from "@/lib/constants";
+import { WEB_DEV_START_DATE, GITHUB_LINK } from "@/lib/constants";
 
 export const links = [
     {
@@ -43,7 +43,7 @@ export const projects = [
         startDate: "September 2023",
         links: {
             website: "https://invoify.vercel.app",
-            github: "https://github.com/aliabb01/invoify",
+            github: `${GITHUB_LINK}/invoify`,
         },
         mainImage: Invoify,
     },
@@ -54,7 +54,7 @@ export const projects = [
         startDate: "February 2022",
         endDate: "May 2022",
         links: {
-            github: "https://github.com/aliabb01/eval",
+            github: `${GITHUB_LINK}/eval`,
         },
         mainImage: EvAl,
     },
@@ -65,7 +65,7 @@ export const projects = [
         startDate: "February 2020",
         endDate: "June 2020",
         links: {
-            github: "https://github.com/aliabb01/rrw",
+            github: `${GITHUB_LINK}/rrw`,
         },
         mainImage: RRW,
     },
